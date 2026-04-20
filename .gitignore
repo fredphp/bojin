@@ -1,54 +1,136 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ===========================================
+# 博金游戏平台客户端 .gitignore 配置文件
+# ===========================================
 
-# dependencies
-node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# ----------------
+# 日志文件
+# ----------------
+*.log
+*.txt
+!README.txt
+DownLoadLog.txt
+GPManagerLog.txt
+UpdataCheckLog.txt
+dev.log
+server.log
 
-# testing
-/coverage
+# ----------------
+# 临时文件
+# ----------------
+*.tmp
+*.temp
+*.bak
+*.cache
+unins000.dat
+unins000.exe
 
-# next.js
-/.next/
-/out/
+# ----------------
+# 系统文件
+# ----------------
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
 
-# production
-/build
-
-# misc
+# macOS
 .DS_Store
-*.pem
+.AppleDouble
+.LSOverride
+._*
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
 
-# env files (can opt-in for committing if needed)
-.env*
+# ----------------
+# 用户数据文件
+# ----------------
+# 用户配置和数据（包含敏感信息）
+ServerInfo.INI
+user_data/
+save/
+screenshot/
 
-# vercel
-.vercel
+# ----------------
+# 开发环境
+# ----------------
+# IDE 和编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-*
 
+# 编译产物
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.res
+*.tlog
 
-# typescript
+# 调试文件
+*.pdb
+*.map
+
+# ----------------
+# Node.js / Next.js
+# ----------------
+node_modules/
+.next/
+out/
+build/
+dist/
+.npm
+.yarn/
+
+# 依赖锁文件（可选）
+# bun.lock
+# package-lock.json
+# yarn.lock
+
+# ----------------
+# 环境配置
+# ----------------
+.env
+.env.*
+.env.local
+.env.*.local
+local-*
+
+# ----------------
+# 其他
+# ----------------
+# 测试目录
+coverage/
+test/
+tests/
+
+# 备份目录
+backup/
+bak/
+
+# 上传目录（临时文件）
+upload/
+
+# Claude/AI 配置
+.claude/
+.z-ai-config/
+
+# TypeScript 编译缓存
 *.tsbuildinfo
 next-env.d.ts
-local-*
-.claude
-.z-ai-config
-*.log
-dev.log
-dev.out.log
-test
-prompt
 
-server.log
-# Skills directory
-/skills/
+# Vercel
+.vercel/
+
+# 敏感文件
+*.pem
+*.key
+*.p12
+*.pfx
