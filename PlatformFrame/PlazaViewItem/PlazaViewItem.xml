@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window>
+
+  <PlazaViewItem >
+    <TabLayout name="TabItemMode" padding="0,0,0,0">
+      <PlazaViewItemGameKind name="PlazaViewItemGameKind">
+        <TabLayout name="TabGameKind" padding="40,10,0,0">
+        </TabLayout>
+
+        <HorizontalLayout padding="0,2,0,12" width="95" height="22" horzpaddingcenter="true">
+          <Button name="bt_LastOne" padding="0,0,0,0" width="20"
+            normalimage="file='PlazaViewItem/bt_LastKind.png' source='0,0,20,22'"
+            hotimage="file='PlazaViewItem/bt_LastKind.png' source='40,0,60,22'"
+            pushedimage="file='PlazaViewItem/bt_LastKind.png' source='20,0,40,22'"
+            disabledimage="file='PlazaViewItem/bt_LastKind.png' source='60,0,80,22'"/>
+          <Text name="TextShowPage" align="center" valign="vcenter" textcolor="0xfffdea14"/>
+          <Button name="bt_NextOne" padding="0,0,0,0" width="20"
+            normalimage="file='PlazaViewItem/bt_NextKind.png' source='0,0,20,22'"
+            hotimage="file='PlazaViewItem/bt_NextKind.png' source='40,0,60,22'"
+            pushedimage="file='PlazaViewItem/bt_NextKind.png' source='20,0,40,22'"
+            disabledimage="file='PlazaViewItem/bt_NextKind.png' source='60,0,80,22'"/>
+        </HorizontalLayout>
+      </PlazaViewItemGameKind>
+      
+      <PlazaViewItemGameServer name="PlazaViewItemGameServer">
+        <HorizontalLayout padding="0,0,0,0" height="45" >
+          <Label name="LabelGameTitle" padding="30,0,0,0" width="84" height="23" vertpaddingcenter="true"/>
+          <Control />
+          <Button name="BtnBackKindView" padding="0,0,30,0" width="27" height="25" vertpaddingcenter="true"
+            normalimage="file='PlazaViewItem/BtnBack.png' source='0,0,27,25'"
+            hotimage="file='PlazaViewItem/BtnBack.png' source='54,0,81,25'"
+            pushedimage="file='PlazaViewItem/BtnBack.png' source='27,0,54,25'"
+            disabledimage="file='PlazaViewItem/BtnBack.png' source='81,0,108,25'"/>
+        </HorizontalLayout>
+        
+        <TabLayout name="TabGameServer" padding="10,20,0,0">
+        </TabLayout>
+
+        <HorizontalLayout padding="0,0,0,30" width="95" height="22" horzpaddingcenter="true" >
+          <Button name="bt_LastOne" padding="0,0,0,0" width="20"
+            normalimage="file='PlazaViewItem/bt_LastKind.png' source='0,0,20,22'"
+            hotimage="file='PlazaViewItem/bt_LastKind.png' source='40,0,60,22'"
+            pushedimage="file='PlazaViewItem/bt_LastKind.png' source='20,0,40,22'"
+            disabledimage="file='PlazaViewItem/bt_LastKind.png' source='60,0,80,22'"/>
+          <Text name="TextShowPage" align="center" valign="vcenter" textcolor="0xfffdea14"/>
+          <Button name="bt_NextOne" padding="0,0,0,0" width="20"
+            normalimage="file='PlazaViewItem/bt_NextKind.png' source='0,0,20,22'"
+            hotimage="file='PlazaViewItem/bt_NextKind.png' source='40,0,60,22'"
+            pushedimage="file='PlazaViewItem/bt_NextKind.png' source='20,0,40,22'"
+            disabledimage="file='PlazaViewItem/bt_NextKind.png' source='60,0,80,22'"/>
+        </HorizontalLayout>
+      </PlazaViewItemGameServer>
+    </TabLayout>
+    
+  </PlazaViewItem>
+</Window>

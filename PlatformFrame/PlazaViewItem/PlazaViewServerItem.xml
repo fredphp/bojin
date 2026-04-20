@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window>
+
+  <PlazaViewItemServerUI width="216" height="185">
+
+    <VerticalLayout bkimage="PlazaViewItem/PlazaViewServerItemBk.png" width="216" height="185" horzpaddingcenter="true" vertpaddingcenter="true">
+      <Text name="TextServerName" padding="0,24,0,0" height="24" align="center" valign="vcenter" font="9" textcolor="0xffffffff"/>
+      <HorizontalLayout padding="36,14,0,0" height="20" >
+        <Text text="人数：" width="90" align="left" valign="vcenter" font="10" textcolor="0xffffffff"/>
+        <Text name="TextServerPlayerNum" align="left" valign="vcenter" font="11" textcolor="0xfffdea14"/>
+      </HorizontalLayout>
+      
+      <HorizontalLayout padding="36,4,0,0" height="20" >
+        <Text text="底注：" width="90" align="left" valign="vcenter" font="10" textcolor="0xffffffff"/>
+        <Text name="TextServerMinScore" align="left" valign="vcenter" font="11" textcolor="0xfffdea14"/>
+      </HorizontalLayout>
+      
+      <HorizontalLayout padding="36,4,0,0" height="20" >
+        <Text text="所需金币：" width="90" align="left" valign="vcenter" font="10" textcolor="0xffffffff"/>
+        <Text name="TextServerEnterScore" align="left" valign="vcenter" font="11" textcolor="0xfffdea14"/>
+      </HorizontalLayout>
+      
+      <Control />
+      <Button name="BtnEnterServer" padding="0,0,0,0" width="123" height="39" horzpaddingcenter="true"
+        normalimage="file='PlazaViewItem/BtnEnterServer.png' source='0,0,123,39'"
+        hotimage="file='PlazaViewItem/BtnEnterServer.png' source='123,0,246,39'"
+        pushedimage="file='PlazaViewItem/BtnEnterServer.png' source='246,0,369,39'"/>
+    </VerticalLayout>
+    
+  </PlazaViewItemServerUI>
+</Window>

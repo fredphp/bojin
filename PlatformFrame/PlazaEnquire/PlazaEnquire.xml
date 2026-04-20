@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="521,393" caption="0,0,0,70" mininfo="521,393" maxinfo="521,393" bktrans="true">
+  <Font name="宋体" size="16" bold="true"/>
+  
+  <VerticalLayout bkimage="PlazaEnquire/enquireBG.png">
+    <!-- 	<Button name="closebtn" pos="497,8,0,0" width="20" height="20" float="true" normalimage="file='PlazaEnquire/closebtn.png' source='0,0,20,20'" hotimage="file='PlazaEnquire/closebtn.png' source='20,0,40,20'" pushedimage="file='PlazaEnquire/closebtn.png' source='40,0,60,20'" disabledimage="file='PlazaEnquire/closebtn.png' source='60,0,80,20'" /> -->
+    <Text pos="150,242,0,0" width="235" height="31" float="true" text="您确实要关闭游戏广场吗？" font="0" textcolor="#b3988f"/>
+    <Button name="bt_EnquireSwitch" pos="52,335,0,0" width="115" height="36" float="true" 
+      normalimage="file='PlazaEnquire/bt_EnquireSwitch.png' source='0,0,115,36'" 
+      hotimage="file='PlazaEnquire/bt_EnquireSwitch.png' source='230,0,345,36'" 
+      pushedimage="file='PlazaEnquire/bt_EnquireSwitch.png' source='115,0,230,36'" />
+    <Button name="bt_EnquireServer" pos="195,161,0,0" width="128" height="42" float="true" visible="false"
+      normalimage="file='PlazaEnquire/bt_EnquireServer.png' source='0,0,128,42'" 
+      pushedimage="file='PlazaEnquire/bt_EnquireServer.png' source='128,0,256,42'" 
+      hotimage="file='PlazaEnquire/bt_EnquireServer.png' source='256,0,384,42'" 
+      disabledimage="file='PlazaEnquire/bt_EnquireServer.png' source='384,0,512,42'" />
+    <Button name="bt_EnquirePlaze" pos="202,335,0,0" width="115" height="36" float="true" 
+      normalimage="file='PlazaEnquire/bt_EnquirePlaze.png' source='0,0,115,36'" 
+      hotimage="file='PlazaEnquire/bt_EnquirePlaze.png' source='230,0,345,36'"
+      pushedimage="file='PlazaEnquire/bt_EnquirePlaze.png' source='115,0,230,36'"/>
+    <Button name="bt_Cancel" pos="352,335,0,0" width="115" height="36" float="true" 
+      normalimage="file='PlazaEnquire/bt_Cancel.png' source='0,0,115,36'" 
+      hotimage="file='PlazaEnquire/bt_Cancel.png' source='230,0,345,36'" 
+      pushedimage="file='PlazaEnquire/bt_Cancel.png' source='115,0,230,36'" />
+  </VerticalLayout>
+</Window>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window>
+  <VerticalLayout>
+    <TabLayout name="ServiceView">
+      <HorizontalLayout name="ServerBG" pos="6,0,0,0" borderround="5,5" width="769" height="523" float="true" bkimage="ServerViewItem/ServerViewItemBG.png" >
+        <Button name="ClientCtrl" pos="748,4,0,0" width="10" height="10" float="true" bkcolor="0xFFFFFFFF" />
+        <Button name="bt_Distribute" pos="153,440,0,0" width="128" height="42" float="true" normalimage="file='ServerViewItem/bt_Distribute.png' source='0,0,128,42'" hotimage="file='ServerViewItem/bt_Distribute.png' source='256,0,384,42'" pushedimage="file='ServerViewItem/bt_Distribute.png' source='128,0,256,42'" disabledimage="file='ServerViewItem/bt_Distribute.png' source='384,0,512,42'" />
+        <Button name="bt_CloseServer" pos="453,440,0,0" width="128" height="42" float="true" normalimage="file='ServerViewItem/bt_CloseServer.png' source='0,0,128,42'" hotimage="file='ServerViewItem/bt_CloseServer.png' source='256,0,384,42'" pushedimage="file='ServerViewItem/bt_CloseServer.png' source='128,0,256,42'" disabledimage="file='ServerViewItem/bt_CloseServer.png' source='384,0,512,42'" />
+      </HorizontalLayout>
+      <HorizontalLayout width="772" height="525" bkimage="ServerViewItem/MatchViewItemBG.png">
+        <Control name="MatchTitle" pos="10,9,0,0" width="180" height="19" float="true" bkimage="ServerViewItem/title.png" />
+        <Text name="MatchName" pos="235,58,0,0" width="303" height="30" float="true" align="center" text="斗地主比赛场" textcolor="0xFFd0b041" font="6" />
+        <Button name="bt_SignUp" pos="458,350,0,0" width="90" height="37" float="true" normalimage="file='ServerViewItem/bt_SignUp.png' source='0,0,90,37'" hotimage="file='ServerViewItem/bt_SignUp.png' source='90,0,180,37'" pushedimage="file='ServerViewItem/bt_SignUp.png' source='180,0,270,37'" disabledimage="file='ServerViewItem/bt_SignUp.png' source='270,0,360,37'" />
+        <Button name="bt_UnSignUp" pos="458,350,0,0" width="90" height="37" float="true" normalimage="file='ServerViewItem/bt_UnSignUp.png' source='0,0,90,37'" hotimage="file='ServerViewItem/bt_UnSignUp.png' source='90,0,180,37'" pushedimage="file='ServerViewItem/bt_UnSignUp.png' source='180,0,270,37'" disabledimage="file='ServerViewItem/bt_UnSignUp.png' source='270,0,360,37'" />
+        <Button name="bt_EnquireMatch" pos="578,350,0,0" width="90" height="37" float="true" normalimage="file='ServerViewItem/bt_EnquireMatch.png' source='0,0,90,37'" hotimage="file='ServerViewItem/bt_EnquireMatch.png' source='90,0,180,37'" pushedimage="file='ServerViewItem/bt_EnquireMatch.png' source='180,0,270,37'" disabledimage="file='ServerViewItem/bt_EnquireMatch.png' source='270,0,360,37'" />
+        <Container pos="437,120,0,0" width="254" height="199" float="true">
+          <Text name="t_Reward0" pos="3,18,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第一名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward1" pos="3,38,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第二名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward2" pos="3,58,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第三名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward3" pos="3,78,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第四名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward4" pos="3,98,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第五名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward5" pos="3,118,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第六名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward6" pos="3,138,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第七名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward7" pos="3,158,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第八名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward8" pos="3,178,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第九名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+          <Text name="t_Reward9" pos="3,198,0,0" width="246" height="18" float="true" textpadding="50,0,0,0" valign="vcenter" text="第十名：1000金币" textcolor="0xFFfcce06" font="2" bkimage="ServerViewItem/t_RewardBG.png" />
+        </Container>
+        <Text name="t_MatchContent" pos="125,433,0,0" width="660" height="80" float="true" showhtml="true" text="" textcolor="0xFFddd556" font="2" />
+        <TabLayout name="MatchType" pos="4,108,0,0" width="380" height="272" float="true">
+          <HorizontalLayout>
+            <Text name="t_WaiteNumber" pos="173,83,0,0" width="120" height="50" float="true" align="center" text="200" textcolor="0xFFe6c400" font="3"/>
+            <Slider name="sli_Num" pos="174,112,0,0" width="116" height="8" float="true" isstretchfore="false" bkimage="ServerViewItem/sliNumBk.png" align="center" foreimage="ServerViewItem/sli_NumFore.png" max="100" value="50" />
+            <Text name="t_TotalNumber" pos="128,235,0,0" width="200" height="24" float="true" align="center" text="满200人开始比赛" textcolor="0xFF79df23" font="8"/>
+          </HorizontalLayout>
+        </TabLayout>
+      </HorizontalLayout>
+    </TabLayout>
+  </VerticalLayout>
+</Window>

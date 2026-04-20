@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1024,768" roundcorner="10,10" caption="0,0,0,39" mininfo="1024,768" maxinfo="1024,768" >
+  <Font id="0" name="宋体" size="12" bold="true" />
+  <Font id="1" name="黑体" size="14" />
+  <Font id="2" name="宋体" size="12" />
+  <Font id="3" name="宋体" size="24" bold="true" />
+  <Font id="4" name="宋体" size="30" bold="true" />
+  <Font id="5" name="宋体" size="50" bold="true" />
+  <Font id="6" name="黑体" size="30" bold="true" />
+  <Font id="7" name="宋体" size="35" bold="true" />
+  <Font id="8" name="黑体" size="20" bold="true" />
+  <Font id="9" name="宋体" size="20"  />
+  <Font id="10" name="宋体" size="14"  />
+  <Font id="11" name="宋体" size="12" bold="true" />
+
+  <HorizontalLayout >
+    <VerticalLayout width="1024" bkimage="file='PlatformFrame/PlatformFrameBG.png'" >
+      <HorizontalLayout padding="0,0,0,0" height="31">
+        <Control width="220"/>
+        <WebBrowser name="WebTop" padding="0,4,0,0" height="19" homepage="about:blank" autonavi="true" delaycreate="false" />
+
+        <HorizontalLayout padding="10,1,0,0" width="220" height="28">
+          <Control />
+          <Button name="btn_HomePage" padding="0,1,2,0" width="80" 
+            normalimage="file='PlatformFrame/Btn_HOMEPAGE.png' source='0,0,80,28'"
+            hotimage="file='PlatformFrame/Btn_HOMEPAGE.png' source='160,0,240,28'"
+            pushedimage="file='PlatformFrame/Btn_HOMEPAGE.png' source='80,0,160,28'"/>
+          <Button name="btn_TopUp" width="40"  visible="false"
+            normalimage="file='PlatformFrame/btn_TopUp.png' source='0,0,40,25'"
+            hotimage="file='PlatformFrame/btn_TopUp.png' source='40,0,80,25'"
+            pushedimage="file='PlatformFrame/btn_TopUp.png' source='80,0,120,25'"
+            disabledimage="file='PlatformFrame/btn_TopUp.png' source='120,0,160,25'" />
+          <Button name="btn_SettingUp" width="30" visible="false"
+            normalimage="file='PlatformFrame/btn_SettingUp.png' source='0,0,30,25'"
+            hotimage="file='PlatformFrame/btn_SettingUp.png' source='30,0,60,25'"
+            pushedimage="file='PlatformFrame/btn_SettingUp.png' source='60,0,90,25'"
+            disabledimage="file='PlatformFrame/btn_SettingUp.png' source='90,0,120,25'" />
+          <Button name="minbtn" padding="0,1,2,0" width="23" 
+            normalimage="file='PlatformFrame/btn_min.png' source='0,0,23,28'"
+            hotimage="file='PlatformFrame/btn_min.png' source='46,0,69,28'"
+            pushedimage="file='PlatformFrame/btn_min.png' source='23,0,46,28'" />
+          <Button name="closebtn" padding="0,1,3,0" width="23" 
+            normalimage="file='PlatformFrame/btn_close.png' source='0,0,23,28'"
+            hotimage="file='PlatformFrame/btn_close.png' source='46,0,69,28'"
+            pushedimage="file='PlatformFrame/btn_close.png' source='23,0,46,28'" />
+        </HorizontalLayout>
+      </HorizontalLayout>
+
+      <HorizontalLayout height="90" >
+        <WebBrowser name="WebTopActive" padding="87,0,0,0" width="594" height="88" visible="false" homepage="about:blank"
+          clsid="{8856F961-340A-11D0-A96B-00C04FD705A2}" autonavi="true" delaycreate="false" />
+        <Flash name="Banner" padding="87,0,0,0" width="594" height="88" visible="false"
+          clsid="{D27CDB6E-AE6D-11CF-96B8-444553540000}" />
+
+        <Control />
+        <VerticalLayout padding="0,0,10,0" width="87" >
+          <Option name="CheckCheckIn" group="1" padding="0,10,0,0" height="26" visible="true"
+            normalimage="file='PlatformFrame/CheckCheckIn.png' source='0,0,87,26'"
+            hotimage="file='PlatformFrame/CheckCheckIn.png' source='87,0,174,26'"
+            pushedimage="file='PlatformFrame/CheckCheckIn.png' source='174,0,261,26'"
+            selectedimage="file='PlatformFrame/CheckCheckIn.png' source='174,0,261,26'" />
+          <Option name="CheckOnlineServer" group="1" padding="0,10,0,0" height="26"
+            normalimage="file='PlatformFrame/CheckOnlineServer.png' source='0,0,87,26'"
+            hotimage="file='PlatformFrame/CheckOnlineServer.png' source='87,0,174,26'"
+            pushedimage="file='PlatformFrame/CheckOnlineServer.png' source='174,0,261,26'"
+            selectedimage="file='PlatformFrame/CheckOnlineServer.png' source='174,0,261,26'" />
+          <Option name="CheckActiveNotice" group="1" padding="0,10,0,0" height="26" visible="false"
+            normalimage="file='PlatformFrame/CheckActiveNotice.png' source='0,0,87,26'"
+            hotimage="file='PlatformFrame/CheckActiveNotice.png' source='87,0,174,26'"
+            pushedimage="file='PlatformFrame/CheckActiveNotice.png' source='174,0,261,26'"
+            selectedimage="file='PlatformFrame/CheckActiveNotice.png' source='174,0,261,26'" />
+        </VerticalLayout>
+      </HorizontalLayout>
+
+      <HorizontalLayout padding="0,15,0,0" >
+        <VerticalLayout padding="10,0,0,0" width="194">
+          <UserInfoCtrl name="userInfo" height="200" bkimage="PlatformFrame/PersonalInfo.png" >
+            <Text name="t_OnLineCount" pos="111,216,0,0" bkcolor="#ffffffff" align="center" width="16" height="17" float="true" 
+              font="1" valign="center" bkimage="file='PlatformFrame/OnLineCountNu.png' source='144,0,160,17'" visible="false"/>
+            <Text name="t_OnLineCount1" pos="130,216,0,0" bkcolor="#ffffffff" align="center" width="16" height="17" float="true" 
+              font="1" valign="center" bkimage="file='PlatformFrame/OnLineCountNu.png' source='144,0,160,17'" visible="false"/>
+            <Text name="t_OnLineCount2" pos="149,216,0,0" bkcolor="#ffffffff" align="center" width="16" height="17" float="true" 
+              font="1" valign="center" bkimage="file='PlatformFrame/OnLineCountNu.png' source='144,0,160,17'" visible="false"/>
+            <Text name="t_OnLineCount3" pos="168,216,0,0" bkcolor="#ffffffff" align="center" width="16" height="17" float="true" 
+              font="1" valign="center" bkimage="file='PlatformFrame/OnLineCountNu.png' source='144,0,160,17'" visible="false"/>
+            <Text name="t_OnLineCount4" pos="187,216,0,0" bkcolor="#ffffffff" align="center" width="16" height="17" float="true" 
+              font="1" valign="center" bkimage="file='PlatformFrame/OnLineCountNu.png' source='144,0,160,17'" visible="false"/>
+          </UserInfoCtrl>
+          <HorizontalLayout name="moreFunc" padding="6,320,0,0" width="226" height="176" bkimage="PlatformFrame/moreFuncBk.png" visible="false">
+            <Button name="bt_MoreFunc0" pos="25,14,0,0" width="51" height="49" float="true"
+              normalimage="file='PlatformFrame/bt_MoreFunc0.png' source='0,0,51,49'"
+              hotimage="file='PlatformFrame/bt_MoreFunc0.png' source='51,0,102,49'"
+              pushedimage="file='PlatformFrame/bt_MoreFunc0.png' source='102,0,153,49'"
+              disabledimage="file='PlatformFrame/bt_MoreFunc0.png' source='153,0,204,49'" />
+            <Button name="bt_MoreFunc1" pos="86,14,0,0" userdata="http://www.if0009.com:8442/spread.html?uid=%ld&pwd=%s" width="51" height="49" float="true"
+              normalimage="file='PlatformFrame/bt_MoreFunc1.png' source='0,0,51,49'"
+              hotimage="file='PlatformFrame/bt_MoreFunc1.png' source='51,0,102,49'"
+              pushedimage="file='PlatformFrame/bt_MoreFunc1.png' source='102,0,153,49'"
+              disabledimage="file='PlatformFrame/bt_MoreFunc1.png' source='153,0,204,49'" />
+            <Button name="bt_MoreFunc2" pos="145,14,0,0" width="51" height="49" float="true"
+              normalimage="file='PlatformFrame/bt_MoreFunc2.png' source='0,0,51,49'"
+              hotimage="file='PlatformFrame/bt_MoreFunc2.png' source='51,0,102,49'"
+              pushedimage="file='PlatformFrame/bt_MoreFunc2.png' source='102,0,153,49'"
+              disabledimage="file='PlatformFrame/bt_MoreFunc2.png' source='153,0,204,49'" />
+            <Button name="bt_MoreFunc3" pos="25,98,0,0" userdata="http://www.if0009.com:8442/promo.html?uid=%ld&pwd=%s" width="51" height="49" float="true"
+              normalimage="file='PlatformFrame/bt_MoreFunc3.png' source='0,0,51,49'"
+              hotimage="file='PlatformFrame/bt_MoreFunc3.png' source='51,0,102,49'"
+              pushedimage="file='PlatformFrame/bt_MoreFunc3.png' source='102,0,153,49'"
+              disabledimage="file='PlatformFrame/bt_MoreFunc3.png' source='153,0,204,49'" />
+            <Button name="bt_MoreFunc4" pos="86,98,0,0" userdata="http://www.if0009.com:8442/lucky.html?uid=%ld&pwd=%s" width="51" height="49" float="true"
+              normalimage="file='PlatformFrame/bt_MoreFunc4.png' source='0,0,51,49'"
+              pushedimage="file='PlatformFrame/bt_MoreFunc4.png' source='51,0,102,49'"
+              hotimage="file='PlatformFrame/bt_MoreFunc4.png' source='102,0,153,49'"
+              disabledimage="file='PlatformFrame/bt_MoreFunc4.png' source='153,0,204,49'" />
+            <Button name="bt_MoreFunc5" pos="145,98,0,0" userdata="http://www.if0009.com:8442/withdraw.html?uid=%ld&pwd=%s" width="51" height="49" float="true"
+              normalimage="file='PlatformFrame/bt_MoreFunc5.png' source='0,0,51,49'"
+              hotimage="file='PlatformFrame/bt_MoreFunc5.png' source='51,0,102,49'"
+              pushedimage="file='PlatformFrame/bt_MoreFunc5.png' source='102,0,153,49'"
+              disabledimage="file='PlatformFrame/bt_MoreFunc5.png' source='153,0,204,49'" />
+            <Control name="t_MoreFunc0" pos="30,65,0,0" width="34" height="17" float="true" bkimage="PlatformFrame/t_MoreFunc0.png" />
+            <Control name="t_MoreFunc1" pos="95,65,0,0" width="34" height="17" float="true" bkimage="PlatformFrame/t_MoreFunc1.png" />
+            <Control name="t_MoreFunc2" pos="155,65,0,0" width="34" height="17" float="true" bkimage="PlatformFrame/t_MoreFunc2.png" />
+            <Control name="t_MoreFunc3" pos="30,152,0,0" width="34" height="17" float="true" bkimage="PlatformFrame/t_MoreFunc3.png" />
+            <Control name="t_MoreFunc4" pos="95,152,0,0" width="34" height="17" float="true" bkimage="PlatformFrame/t_MoreFunc4.png" />
+            <Control name="t_MoreFunc5" pos="155,152,0,0" width="34" height="17" float="true" bkimage="PlatformFrame/t_MoreFunc5.png" />
+          </HorizontalLayout>
+
+          <HorizontalLayout padding="0,10,0,0" height="263" bkimage="file='PlatformFrame/ACTIVITY_ADS.png'">
+            <WebBrowser name="WebActiveNotice" padding="5,50,5,5" clsid="{8856F961-340A-11D0-A96B-00C04FD705A2}" 
+              homepage="about:blank" autonavi="true" delaycreate="false" />
+          </HorizontalLayout>
+
+          <HorizontalLayout padding="0,10,0,0" height="132" bkimage="file='PlatformFrame/WeChatBk.png'">
+            <WebBrowser name="WebWeChatDownLoad" padding="54,10,0,0" width="112" height="112" clsid="{8856F961-340A-11D0-A96B-00C04FD705A2}"
+              homepage="about:blank" autonavi="true" delaycreate="false" />
+          </HorizontalLayout>
+        </VerticalLayout>
+
+        <VerticalLayout padding="10,0,0,0" >
+          <HorizontalLayout padding="25,0,0,0" height="43" >
+            <Option name="CheckGameCenter" group="1" padding="0,0,0,0" width="153"
+              normalimage="file='PlatformFrame/CheckGameCenter.png' source='153,0,306,43'"
+              hotimage="file='PlatformFrame/CheckGameCenter.png' source='306,0,459,43'"
+              selectedimage="file='PlatformFrame/CheckGameCenter.png' source='0,0,153,43'" />
+            <Option name="CheckReCharge" group="1" padding="-5,0,0,0" width="153"
+              normalimage="file='PlatformFrame/CheckRecharge.png' source='153,0,306,43'"
+              hotimage="file='PlatformFrame/CheckRecharge.png' source='306,0,459,43'"
+              selectedimage="file='PlatformFrame/CheckRecharge.png' source='0,0,153,43'" />
+            <Option name="CheckGoldExchange" group="1" padding="-5,0,0,0" width="153" 
+              normalimage="file='PlatformFrame/CheckGoldExchange.png' source='153,0,306,43'"
+              hotimage="file='PlatformFrame/CheckGoldExchange.png' source='306,0,459,43'"
+              selectedimage="file='PlatformFrame/CheckGoldExchange.png' source='0,0,153,43'" />
+            <Option name="CheckActivityCenter" group="1" padding="-5,0,0,0" width="153" visible="false"
+              normalimage="file='PlatformFrame/CheckActivityCenter.png' source='153,0,306,43'"
+              hotimage="file='PlatformFrame/CheckActivityCenter.png' source='306,0,459,43'"
+              selectedimage="file='PlatformFrame/CheckActivityCenter.png' source='0,0,153,43'" />
+            <Option name="CheckActiveNoticeEx" group="1" padding="-5,0,0,0" width="153" 
+              normalimage="file='PlatformFrame/CheckActiveNoticeEx.png' source='153,0,306,43'"
+              hotimage="file='PlatformFrame/CheckActiveNoticeEx.png' source='306,0,459,43'"
+              selectedimage="file='PlatformFrame/CheckActiveNoticeEx.png' source='0,0,153,43'" />
+            <Option name="CheckPersonalCenter" group="1" padding="-5,0,0,0" width="153" 
+              normalimage="file='PlatformFrame/CheckPersonalCenter.png' source='153,0,306,43'"
+              hotimage="file='PlatformFrame/CheckPersonalCenter.png' source='306,0,459,43'"
+              selectedimage="file='PlatformFrame/CheckPersonalCenter.png' source='0,0,153,43'" />
+            <Option name="CheckGameMatch" group="1" padding="-5,0,0,0" width="153" visible="false"
+              normalimage="file='PlatformFrame/CheckPersonalCenter.png' source='153,0,306,43'"
+              hotimage="file='PlatformFrame/CheckPersonalCenter.png' source='306,0,459,43'"
+              selectedimage="file='PlatformFrame/CheckPersonalCenter.png' source='0,0,153,43'" />
+          </HorizontalLayout>
+
+          <TabLayout name="TabPlazaView" padding="0,0,0,0" width="801" height="576" bkimage="PlatformFrame/mainContentBk.png">
+            <PlazaViewItem name="PlazaViewItem"/>
+            <WebBrowser name="WebPlazaView" clsid="{8856F961-340A-11D0-A96B-00C04FD705A2}"  homepage="about:blank" autonavi="true" 
+              delaycreate="false" />
+            <ServerViewItem name="ServerViewItem" width="768" height="522" horzpaddingcenter="true" vertpaddingcenter="true"/>
+            <MatchViewItem />
+          </TabLayout>
+        </VerticalLayout>
+      </HorizontalLayout>
+    </VerticalLayout>
+
+    <List name="GameRecordList" padding="0,39,0,0" bkcolor="0xffffffff" vscrollbar="true" hscrollbar="true" header="hidden"
+        hscrollbarstyle="height=&quot;10&quot; thumbnormalimage=&quot;file='PlatformFrame/HScroll.png' source='0,0,20,9' corner='5,0,5,0'&quot; thumbhotimage=&quot;file='PlatformFrame/HScroll.png' source='0,9,20,18' corner='5,0,5,0'&quot; thumbpushedimage=&quot;file='PlatformFrame/HScroll.png' source='0,0,20,9' corner='5,0,5,0'&quot; button1normalimage=&quot;file='PlatformFrame/HButton1.png' source='0,0,9,9'&quot; button1hotiamge=&quot;file='PlatformFrame/HButton1.png' source='0,0,9,9'&quot; button1pushedimage=&quot;file='PlatformFrame/HButton1.png' source='0,9,9,18'&quot; button2normalimage=&quot;file='PlatformFrame/HButton2.png' source='0,0,9,9'&quot; button2hotiamge=&quot;file='PlatformFrame/HButton2.png' source='0,0,9,9'&quot; button2pushedimage=&quot;file='PlatformFrame/HButton2.png' source='0,9,9,18'&quot;"
+        vscrollbarstyle="thumbnormalimage=&quot;file='PlatformFrame/VScroll.png' source='0,0,9,20' corner='0,5,0,5'&quot; thumbhotimage=&quot;file='PlatformFrame/VScroll.png' source='9,0,18,20' corner='0,5,0,5'&quot; thumbpushedimage=&quot;file='PlatformFrame/VScroll.png' source='0,0,9,20' corner='0,5,0,5'&quot; width=&quot;10&quot; button1normalimage=&quot;file='PlatformFrame/Button1.png' source='0,0,9,9'&quot; button1hotiamge=&quot;file='PlatformFrame/Button1.png' source='9,0,18,9'&quot; button1pushedimage=&quot;file='PlatformFrame/Button1.png' source='18,0,27,9'&quot; button2normalimage=&quot;file='PlatformFrame/Button2.png' source='0,0,9,9'&quot; button2hotiamge=&quot;file='PlatformFrame/Button2.png' source='9,0,18,9'&quot; button2pushedimage=&quot;file='PlatformFrame/Button2.png' source='18,0,27,9'&quot; rangehotimage=&quot;file='PlatformFrame/VScrollBk.png' source='0,0,9,20' corner='0,5,0,5'&quot;">
+    </List>
+  </HorizontalLayout>
+</Window>

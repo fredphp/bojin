@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<window>
+  <VerticalLayout>
+    <HorizontalLayout padding="0,54,0,0" height="50">
+      <Container padding="16,0,0,0" name="usericon" width="50" />
+
+      <VerticalLayout>
+        <HorizontalLayout height="23">
+          <Text name="TextNickName" padding="10,0,0,0" width="110" text="0000000000000000000"  textpadding="7,5,0,0" textcolor="0xffc8855b"
+            endellipsis="true" multiline="false" bkimage="UserInfo/BK_INFO.png"/>
+          <Button name="bt_PersonalInfo" pos="85,2,0,0" width="32" height="20" float="true"
+            normalimage="file='UserInfo/bt_PersonalInfo.png' source='0,0,32,20'"
+            hotimage="file='UserInfo/bt_PersonalInfo.png' source='96,0,128,20'"
+            pushedimage="file='UserInfo/bt_PersonalInfo.png' source='32,0,64,20'" />
+        </HorizontalLayout>
+
+        <Text name="TextGameID" padding="10,5,0,0" width="110" text="00000000000000000000" textpadding="7,5,0,0" textcolor="0xffc8855b" 
+          endellipsis="true" multiline="false" bkimage="UserInfo/BK_INFO.png"/>
+      </VerticalLayout>
+    </HorizontalLayout>
+
+    <Text name="TextScore" padding="12,5,0,0" text="000000000000000000000000" textpadding="7,5,0,0" textcolor="0xffc8855b" height="23" width="172"
+        endellipsis="true" multiline="false" bkimage="UserInfo/BK_GOLD.png"/>
+    <Text name="TextInsureScore" padding="12,5,0,0" text="000000000000000000000000" textpadding="7,5,0,0" textcolor="0xffc8855b" height="23" width="172"
+        endellipsis="true" multiline="false" bkimage="UserInfo/BK_GOLD.png"/>
+
+    <HorizontalLayout height="26" padding="10,5,0,0" childpadding="5">
+      <Button name="bt_bound" width="54" height="26"
+        normalimage="file='UserInfo/bt_Bound.png' source='0,0,54,26'"
+        hotimage="file='UserInfo/bt_Bound.png' source='54,0,108,26'"
+        pushedimage="file='UserInfo/bt_Bound.png' source='108,0,162,26'" />
+      <Button name="bt_bank" width="54" height="26"
+        normalimage="file='UserInfo/bt_Bank.png' source='0,0,54,26'"
+        hotimage="file='UserInfo/bt_Bank.png' source='54,0,108,26'"
+        pushedimage="file='UserInfo/bt_Bank.png' source='108,0,162,26'"/>
+      <Button name="bt_referesh" width="54" height="26"
+        normalimage="file='UserInfo/bt_Referesh.png' source='0,0,54,26'"
+        hotimage="file='UserInfo/bt_Referesh.png' source='54,0,108,26'"
+        pushedimage="file='UserInfo/bt_Referesh.png' source='108,0,162,26'"/>
+    </HorizontalLayout>
+  </VerticalLayout>
+</window>
