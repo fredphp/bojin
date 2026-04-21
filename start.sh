@@ -94,6 +94,9 @@ show_help() {
     echo "  --native     尝试原生启动（Windows环境）"
     echo "  --windowed   窗口模式启动"
     echo "  --fullscreen 全屏模式启动"
+    echo "  --status     显示游戏运行状态"
+    echo "  --stop       停止指定游戏"
+    echo "  --stop-all   停止所有游戏"
     echo "  --help       显示此帮助信息"
     echo ""
     echo "示例:"
@@ -101,6 +104,9 @@ show_help() {
     echo "  bash start.sh lkpy         # 启动李逵捕鱼"
     echo "  bash start.sh --list       # 列出所有游戏"
     echo "  bash start.sh lkpy --debug # 调试模式启动捕鱼"
+    echo "  bash start.sh --status     # 查看运行状态"
+    echo "  bash start.sh --stop land  # 停止斗地主"
+    echo "  bash start.sh --stop-all   # 停止所有游戏"
     exit 0
 }
 
@@ -372,17 +378,138 @@ interactive_menu() {
     fi
 }
 
+# 停止游戏
+stop_game() {
+    local game_key="$1"
+
+    # 默认停止主程序
+    if [ -z "$game_key" ]; then
+        game_key="manager"
+    fi
+
+    # 检查游戏是否存在
+    if [ ! -n "${GAMES[$game_key]}" ]; then
+        print_error "未知游戏: $game_key"
+        print_info "使用 --list 查看可用游戏列表"
+        exit 1
+    fi
+
+    # 获取游戏信息
+    IFS='|' read -r exe name <<< "${GAMES[$game_key]}"
+
+    print_header "停止 $name"
+    print_info "可执行文件: $exe"
+
+    # 检测操作系统
+    local os=$(detect_os)
+    local process_name="$exe"
+
+    if [ "$os" = "wsl" ]; then
+        # WSL环境，停止Windows进程
+        print_info "系统: WSL"
+        local win_exe=$(basename "$exe" .exe)
+        cmd.exe /c "taskkill /F /IM $exe" 2>/dev/null
+        if [ $? -eq 0 ]; then
+            print_success "$name 已停止！"
+        else
+            print_warning "$name 可能未运行或已停止"
+        fi
+    elif [ "$os" = "linux" ]; then
+        # Linux环境，停止Wine进程
+        print_info "系统: Linux (Wine)"
+        if command -v wineserver &> /dev/null; then
+            wineserver -k 2>/dev/null
+            print_success "Wine进程已停止"
+        else
+            pkill -f "$exe" 2>/dev/null
+            print_success "$name 已停止！"
+        fi
+    else
+        # Windows环境
+        taskkill //F //IM "$exe" 2>/dev/null
+        if [ $? -eq 0 ]; then
+            print_success "$name 已停止！"
+        else
+            print_warning "$name 可能未运行或已停止"
+        fi
+    fi
+}
+
+# 停止所有游戏
+stop_all() {
+    print_header "停止所有游戏"
+
+    local os=$(detect_os)
+
+    if [ "$os" = "wsl" ]; then
+        # WSL环境
+        for key in "${!GAMES[@]}"; do
+            IFS='|' read -r exe name <<< "${GAMES[$key]}"
+            cmd.exe /c "taskkill /F /IM $exe" 2>/dev/null
+            print_info "已停止: $name"
+        done
+    else
+        # Linux/Windows环境
+        for key in "${!GAMES[@]}"; do
+            IFS='|' read -r exe name <<< "${GAMES[$key]}"
+            pkill -f "$exe" 2>/dev/null || true
+            print_info "已停止: $name"
+        done
+    fi
+
+    print_success "所有游戏已停止"
+}
+
+# 显示运行状态
+show_status() {
+    print_header "游戏运行状态"
+
+    local os=$(detect_os)
+    local running_count=0
+
+    for key in "${!GAMES[@]}"; do
+        IFS='|' read -r exe name <<< "${GAMES[$key]}"
+
+        local is_running=false
+
+        if [ "$os" = "wsl" ]; then
+            # WSL环境检查Windows进程
+            cmd.exe /c "tasklist /FI \"IMAGENAME eq $exe\" 2>NUL" | grep -q "$exe" && is_running=true
+        else
+            # Linux/Windows环境
+            pgrep -f "$exe" &> /dev/null && is_running=true
+        fi
+
+        if [ "$is_running" = true ]; then
+            echo -e "  ${GREEN}●${NC} $name ($exe) - ${GREEN}运行中${NC}"
+            ((running_count++))
+        else
+            echo -e "  ${RED}○${NC} $name ($exe) - ${RED}未运行${NC}"
+        fi
+    done
+
+    echo ""
+    if [ $running_count -eq 0 ]; then
+        print_info "当前没有游戏在运行"
+    else
+        print_success "$running_count 个游戏正在运行"
+    fi
+}
+
 # 主函数
 main() {
     init_environment
-    
+
     # 解析参数
     local game_name=""
     local debug_mode=false
     local force_wine=false
     local show_list=false
     local interactive=false
-    
+    local stop_mode=false
+    local stop_all_mode=false
+    local show_status_mode=false
+
     while [[ $# -gt 0 ]]; do
         case $1 in
             --help|-h)
@@ -408,6 +535,18 @@ main() {
                 interactive=true
                 shift
                 ;;
+            --stop|-s)
+                stop_mode=true
+                shift
+                ;;
+            --stop-all)
+                stop_all_mode=true
+                shift
+                ;;
+            --status)
+                show_status_mode=true
+                shift
+                ;;
             manager|lkpy|land|sparrow|ox|zajinhua|fivestar|baccarat|28gang|bumper)
                 game_name="$1"
                 shift
@@ -419,20 +558,41 @@ main() {
                 ;;
         esac
     done
-    
+
     # 显示游戏列表
     if [ "$show_list" = true ]; then
         show_banner
         list_games
         exit 0
     fi
-    
+
+    # 显示运行状态
+    if [ "$show_status_mode" = true ]; then
+        show_banner
+        show_status
+        exit 0
+    fi
+
+    # 停止所有游戏
+    if [ "$stop_all_mode" = true ]; then
+        show_banner
+        stop_all
+        exit 0
+    fi
+
+    # 停止指定游戏
+    if [ "$stop_mode" = true ]; then
+        show_banner
+        stop_game "$game_name"
+        exit 0
+    fi
+
     # 交互模式
     if [ "$interactive" = true ] || [ -z "$game_name" ]; then
         interactive_menu
         exit 0
     fi
-    
+
     # 启动指定游戏
     show_banner
     start_game "$game_name" "$debug_mode" "$force_wine"
