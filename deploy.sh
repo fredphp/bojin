@@ -394,15 +394,15 @@ restore_config() {
 # 清理临时文件
 clean_temp() {
     print_header "清理临时文件"
-    
+
     local temp_dirs=(
         "$CONFIG_DIR/cache/*"
-        "$WINEPREFIX/drive_c/users/*/Temp/*" 2>/dev/null
+        "$WINEPREFIX/drive_c/users/*/Temp/*"
     )
-    
+
     for pattern in "${temp_dirs[@]}"; do
         if ls $pattern 1> /dev/null 2>&1; then
-            rm -rf $pattern
+            rm -rf $pattern 2>/dev/null
             print_info "清理: $pattern"
         fi
     done
