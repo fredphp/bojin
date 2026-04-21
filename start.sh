@@ -129,7 +129,12 @@ detect_os() {
     if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
         echo "windows"
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        echo "linux"
+        # 检查是否是 WSL
+        if grep -qi microsoft /proc/version 2>/dev/null; then
+            echo "wsl"
+        else
+            echo "linux"
+        fi
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         echo "macos"
     else
@@ -167,6 +172,9 @@ start_game() {
     local debug_mode="$2"
     local force_wine="$3"
     
+    # 保存原始目录
+    local original_dir="$SCRIPT_DIR"
+    
     # 默认启动主程序
     if [ -z "$game_key" ]; then
         game_key="manager"
@@ -194,13 +202,25 @@ start_game() {
     
     # 检测操作系统并选择启动方式
     local os=$(detect_os)
-    local launcher=""
+    local cmd=""
+    local win_path=""
     
     case $os in
         windows)
             # Windows环境直接启动
-            launcher=""
+            cmd="$original_dir/$exe"
             print_info "启动方式: 原生Windows"
+            ;;
+        wsl)
+            # WSL环境，转换路径并直接调用Windows程序
+            win_path=$(wslpath -w "$original_dir/$exe" 2>/dev/null)
+            if [ -n "$win_path" ]; then
+                cmd="cmd.exe /c start \"\" \"$win_path\""
+                print_info "启动方式: WSL (原生Windows)"
+            else
+                print_error "无法转换Windows路径"
+                exit 1
+            fi
             ;;
         linux)
             # Linux环境使用Wine
@@ -211,13 +231,13 @@ start_game() {
                     exit 1
                 fi
             fi
-            launcher="wine"
+            cmd="wine $original_dir/$exe"
             print_info "启动方式: Wine模拟器"
             ;;
         macos)
             # macOS环境尝试使用Wine
             if command -v wine &> /dev/null; then
-                launcher="wine"
+                cmd="wine $original_dir/$exe"
                 print_info "启动方式: Wine模拟器"
             else
                 print_error "macOS环境需要安装Wine"
@@ -231,39 +251,31 @@ start_game() {
             ;;
     esac
     
-    # 构建启动命令
-    local cmd=""
-    if [ -n "$launcher" ]; then
-        cmd="$launcher"
-        
-        if [ "$debug_mode" = true ]; then
-            cmd="$cmd --debug"
-        fi
-    fi
-    
-    cmd="$cmd $SCRIPT_DIR/$exe"
-    
     # 记录启动日志
     local log_file="$LOG_DIR/start_$(date '+%Y%m%d_%H%M%S').log"
     print_info "日志文件: $log_file"
     
     echo "=== 启动日志 $(date '+%Y-%m-%d %H:%M:%S') ===" > "$log_file"
     echo "游戏: $name ($exe)" >> "$log_file"
+    echo "系统: $os" >> "$log_file"
     echo "命令: $cmd" >> "$log_file"
     echo "---" >> "$log_file"
-    
-    # 切换到项目目录
-    cd "$SCRIPT_DIR"
     
     # 启动游戏
     print_success "正在启动..."
     echo ""
     
-    if [ "$debug_mode" = true ]; then
+    if [ "$os" = "wsl" ]; then
+        # WSL模式：使用cmd.exe启动
+        eval "$cmd"
+        print_success "$name 已启动！"
+    elif [ "$debug_mode" = true ]; then
         # 调试模式，显示详细输出
+        cd "$original_dir"
         $cmd 2>&1 | tee -a "$log_file"
     else
         # 正常模式，后台启动
+        cd "$original_dir"
         nohup $cmd >> "$log_file" 2>&1 &
         local pid=$!
         echo "游戏进程ID: $pid"
